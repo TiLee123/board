@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +24,7 @@
             </div>
 
             <ul data-role="listview" data-inset="true" class="action-list">
-                <li><h4>公告內容</h4><p>{{ $board->content }}</p></li>
+                <li><h4>{{ $board->boardTitle }}</h4><p>{{ $board->content }}</p></li>
             </ul>
         </div>
     </div>

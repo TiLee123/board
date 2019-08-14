@@ -1,36 +1,6 @@
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Lab</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-<body>
-<div data-role="page" data-theme="c">
-
-<div class="container">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-			<a class="navbar-brand" href="#">公告訊息管理系統</a>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-			<li>
-				@if ($loginName!="")
-				<a href="/logout"><i class="fa fa-user"></i>{{$loginName}}您好 登出</a></li>
-				@else
-				<a href="/loginPage"><span class="glyphicon glyphicon-log-in"></span> 登入</a></li>
-				@endif
-			</ul>
-		</div>
-	</nav>
-	@if ($loginName!="")
+@extends('layout.master')
+@section('content')
+	@if (Session::get('name')!="")
 	<h3>
 		<a href="/pushs/create" class="btn btn-md btn-primary pull-right">推播</a>
 		<a href="/orders/create" class="btn btn-md btn-warning pull-right">訂閱</a>
@@ -49,7 +19,7 @@
 		  <tr>
 			  <td><i class="fa fa-bullhorn"></i> <a href="boards/{{ $board->boardId }}" data-ajax="false">{{$board->boardTitle}}</a></td>
 			  <td>
-				@if ($loginName!="")
+				@if (Session::get('name')!="")
 				<span class="pull-right">
 					<form method="post" action="/boards/{{$board->boardId}}"> 
 						<a href="/boards/{{$board->boardId}}/edit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> 修改</a> | 
@@ -64,7 +34,19 @@
 		  @endforeach  
 		</tbody>
 	</table>
-   </div>
-</body>
+   @endsection
 
-</html>
+   {{-- <button data-url="/boards/1" data-target="#myModal" data-toggle="modal"></button>
+   <div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Event</h4>
+					</div>
+					<div class="modal-body">
+						<p>Loading...</p>
+					</div>
+			</div>
+		</div>
+	</div> --}}

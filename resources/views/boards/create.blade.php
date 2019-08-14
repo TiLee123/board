@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Employee</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<div class="container">
+@extends('layout.master')
+@section('content')
 
 <form method="post" action="/boards" class="form-horizontal">
 @csrf
@@ -55,7 +44,7 @@
   <label class="col-md-4 control-label" for="okOrCancel"></label>
   <div class="col-md-8">
     <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-success">OK</button>
-    <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-danger" value="Cancel">Cancel</button>
+    <button type="button" id="okOrCancel" name="okOrCancel" class="btn btn-danger" value="Cancel" onclick="location.href='/boards'">Cancel</button>
   </div>
 </div>
 
@@ -63,7 +52,4 @@
 </form>
 
 
-</div>
-
-</body>
-</html>
+@endsection

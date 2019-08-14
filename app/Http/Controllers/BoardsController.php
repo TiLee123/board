@@ -18,9 +18,8 @@ class BoardsController extends Controller
      */
     public function index(Request $request)
     {
-        $loginName = Session::get('name');
         $boardList = Board::all();
-        return view('boards.index', compact('boardList', 'loginName'));
+        return view('boards.index', compact('boardList'));
     }
 
     /**

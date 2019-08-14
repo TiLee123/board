@@ -17,7 +17,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>登入</legend>
+<legend>公告訊息管理系統-登入</legend>
 
 <!-- Text input-->
 <div class="form-group">
